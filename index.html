@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Breach</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: black;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // Create the Matrix background canvas
+        const matrixCanvas = document.createElement('canvas');
+        matrixCanvas.width = window.innerWidth;
+        matrixCanvas.height = window.innerHeight;
+        matrixCanvas.style.position = 'fixed';
+        matrixCanvas.style.top = '0';
+        matrixCanvas.style.left = '0';
+        matrixCanvas.style.zIndex = '9998';
+        document.body.appendChild(matrixCanvas);
+
+        const ctx = matrixCanvas.getContext('2d');
+        const letters = Array(256).join(1).split('');
+        setInterval(() => {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
+            ctx.fillStyle = '#0F0';
+            letters.forEach((y, i) => {
+                const text = String.fromCharCode(65 + Math.random() * 33);
+                const x = i * 10;
+                ctx.fillText(text, x, y);
+                letters[i] = y > matrixCanvas.height || Math.random() > 0.95 ? 0 : y + 10;
+            });
+        }, 50);
+
+        // Create the hacker terminal overlay
+        const hackerDiv = document.createElement('div');
+        hackerDiv.style.position = 'fixed';
+        hackerDiv.style.top = '10px';
+        hackerDiv.style.left = '10px';
+        hackerDiv.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+        hackerDiv.style.color = 'green';
+        hackerDiv.style.fontFamily = 'monospace';
+        hackerDiv.style.padding = '20px';
+        hackerDiv.style.zIndex = '10000';
+        hackerDiv.style.width = '80%';
+        hackerDiv.style.height = '80%';
+        hackerDiv.style.overflowY = 'scroll';
+        hackerDiv.style.border = '2px solid green';
+        hackerDiv.style.boxShadow = '0 0 20px green';
+        hackerDiv.style.borderRadius = '10px';
+        document.body.appendChild(hackerDiv);
+
+        const fakeText = [
+            "Initializing hack sequence...",
+            "Connecting to target server...",
+            "Accessing sensitive data...",
+            "Injecting malware into the mainframe...",
+            "Uploading payload...",
+            "Bypassing firewalls...",
+            "Downloading classified information...",
+            "Encrypting all local files...",
+            "Exfiltrating data: 1024TB...",
+            "Launching countermeasures...",
+            "HACK SUCCESSFUL! Target compromised."
+        ];
+        let i = 0;
+
+        // Type effect in the terminal
+        const typingInterval = setInterval(() => {
+            if (i < fakeText.length) {
+                hackerDiv.textContent += fakeText[i] + '\n';
+                hackerDiv.scrollTop = hackerDiv.scrollHeight; // Auto-scroll to bottom
+                i++;
+            } else {
+                hackerDiv.textContent += "> HACKING COMPLETE.";
+                clearInterval(typingInterval);
+            }
+        }, 1000);
+
+        // Add flashing cursor effect to the terminal
+        const cursor = document.createElement('span');
+        cursor.textContent = '█';
+        cursor.style.animation = 'blink 1s infinite';
+        hackerDiv.appendChild(cursor);
+
+        // Play sound effects
+        const audio = new Audio("https://freesound.org/data/previews/256/256113_4486188-lq.mp3");
+        audio.loop = true;
+        audio.play();
+
+        // Add a flashing warning
+        const warningDiv = document.createElement('div');
+        warningDiv.textContent = "!!! SYSTEM BREACHED !!!";
+        warningDiv.style.position = 'fixed';
+        warningDiv.style.top = '50%';
+        warningDiv.style.left = '50%';
+        warningDiv.style.transform = 'translate(-50%, -50%)';
+        warningDiv.style.color = 'red';
+        warningDiv.style.fontFamily = 'monospace';
+        warningDiv.style.fontSize = '3rem';
+        warningDiv.style.fontWeight = 'bold';
+        warningDiv.style.zIndex = '10001';
+        warningDiv.style.textShadow = '0 0 20px red';
+        warningDiv.style.animation = 'blink 1s infinite, fadeIn 3s';
+        document.body.appendChild(warningDiv);
+
+        // Add a fake "shutdown" effect after the sequence completes
+        setTimeout(() => {
+            const shutdownDiv = document.createElement('div');
+            shutdownDiv.style.position = 'fixed';
+            shutdownDiv.style.top = '0';
+            shutdownDiv.style.left = '0';
+            shutdownDiv.style.width = '100%';
+            shutdownDiv.style.height = '100%';
+            shutdownDiv.style.backgroundColor = 'black';
+            shutdownDiv.style.color = 'white';
+            shutdownDiv.style.display = 'flex';
+            shutdownDiv.style.alignItems = 'center';
+            shutdownDiv.style.justifyContent = 'center';
+            shutdownDiv.style.fontSize = '2rem';
+            shutdownDiv.style.fontFamily = 'monospace';
+            shutdownDiv.style.zIndex = '10002';
+            shutdownDiv.textContent = "System Shutdown... Goodbye.";
+            document.body.appendChild(shutdownDiv);
+
+            // Fade out the screen
+            setTimeout(() => {
+                shutdownDiv.style.opacity = '0';
+                shutdownDiv.style.transition = 'opacity 2s ease';
+            }, 2000);
+        }, 30000);
+    </script>
+</body>
+</html>
