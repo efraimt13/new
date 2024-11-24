@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>System Breach</title>
+    <title>System Compromise</title>
     <style>
         body {
             margin: 0;
@@ -68,17 +68,26 @@
         document.body.appendChild(hackerDiv);
 
         const fakeText = [
-            "Initializing hack sequence...",
-            "Connecting to target server...",
-            "Accessing sensitive data...",
-            "Injecting malware into the mainframe...",
-            "Uploading payload...",
-            "Bypassing firewalls...",
-            "Downloading classified information...",
-            "Encrypting all local files...",
-            "Exfiltrating data: 1024TB...",
-            "Launching countermeasures...",
-            "HACK SUCCESSFUL! Target compromised."
+            "Initializing system compromise...",
+            "Accessing restricted data...",
+            "Targeting critical infrastructure...",
+            "Injecting ransomware...",
+            "Encrypting all local drives...",
+            "Corrupting master boot record...",
+            "Disabling network firewalls...",
+            "Downloading classified system logs...",
+            "Uploading unauthorized scripts...",
+            "Overwriting system kernel...",
+            "Injecting advanced persistent threat...",
+            "Deleting system backups...",
+            "Exfiltrating personal credentials...",
+            "Spoofing system IP address...",
+            "Compromise nearing completion...",
+            "Finalizing malicious payload deployment...",
+            "Critical system failure detected.",
+            "Emergency shutdown protocols overridden.",
+            "All system safeguards disabled.",
+            "Compromise complete. Full control established."
         ];
         let i = 0;
 
@@ -89,7 +98,7 @@
                 hackerDiv.scrollTop = hackerDiv.scrollHeight; // Auto-scroll to bottom
                 i++;
             } else {
-                hackerDiv.textContent += "> HACKING COMPLETE.";
+                hackerDiv.textContent += "> SYSTEM OVERRIDE COMPLETE.";
                 clearInterval(typingInterval);
             }
         }, 1000);
@@ -105,21 +114,20 @@
         audio.loop = true;
         audio.play();
 
-        // Add a flashing warning
-        const warningDiv = document.createElement('div');
-        warningDiv.textContent = "!!! SYSTEM BREACHED !!!";
-        warningDiv.style.position = 'fixed';
-        warningDiv.style.top = '50%';
-        warningDiv.style.left = '50%';
-        warningDiv.style.transform = 'translate(-50%, -50%)';
-        warningDiv.style.color = 'red';
-        warningDiv.style.fontFamily = 'monospace';
-        warningDiv.style.fontSize = '3rem';
-        warningDiv.style.fontWeight = 'bold';
-        warningDiv.style.zIndex = '10001';
-        warningDiv.style.textShadow = '0 0 20px red';
-        warningDiv.style.animation = 'blink 1s infinite, fadeIn 3s';
-        document.body.appendChild(warningDiv);
+        // Add dimming effect towards the end
+        setTimeout(() => {
+            const dimEffect = document.createElement('div');
+            dimEffect.style.position = 'fixed';
+            dimEffect.style.top = '0';
+            dimEffect.style.left = '0';
+            dimEffect.style.width = '100%';
+            dimEffect.style.height = '100%';
+            dimEffect.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+            dimEffect.style.zIndex = '9999';
+            dimEffect.style.pointerEvents = 'none';
+            dimEffect.style.transition = 'background-color 5s ease';
+            document.body.appendChild(dimEffect);
+        }, 20000);
 
         // Add a fake "shutdown" effect after the sequence completes
         setTimeout(() => {
@@ -149,3 +157,4 @@
     </script>
 </body>
 </html>
+
